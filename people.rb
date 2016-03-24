@@ -2,7 +2,7 @@ class Person
 attr_accessor :name
 
  def initialize (name)
-   @name=name
+ @name=name
   end
 
   def greeting
@@ -26,5 +26,14 @@ class Instructor < Person
 
 end
 
-Chris=Instructor.new ("chris")
-Cristina=Student.new("Cristina")
+chris=Instructor.new("Chris")
+cristina=Student.new("Cristina")
+
+puts chris.greeting
+puts cristina.greeting
+puts chris.teach
+puts cristina.learn
+puts cristina.teach
+puts chris.learn
+
+# Calling teach for a student will not work as the Student class has not inherited the teach method

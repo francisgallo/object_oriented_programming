@@ -7,17 +7,6 @@ attr_accessor :x_cor , :y_cor , :direction
       @direction = direction
   end
 
-  def read_instruction(instruction)
-    if instruction == "M"
-      self.move
-    elsif instruction == "L"
-        self.l_facing
-    elsif instruction =="R"
-        self.r_facing
-      else
-        puts "Error"  
-    end
-  end
 
   #def direction
    #puts "what is your starting direction"
@@ -27,37 +16,61 @@ attr_accessor :x_cor , :y_cor , :direction
 
   def move
 
-    if @direction == "N" then   @y_cor += 1
-    elsif @direction == "S" then  @y_cor -=1
-    elsif @direction == "W"  then @x_cor -= 1
-    elsif @direction == "E" then @x_cor += 1
+    if @direction == "N"
+      @y_cor += 1
+    elsif @direction == "S"
+       @y_cor -=1
+    elsif @direction == "W"
+      @x_cor -= 1
+    elsif @direction == "E"
+      @x_cor += 1
     else
       puts "nothing"
     end
   end
 
     def l_facing
-      if  @direction =="N" then "W"
-      elsif @direction =="W" then "S"
-      elsif @direction == "S"then "E"
-      elsif @direction == "E" then "N"
+      if  @direction =="N"
+        @direction = "W"
+      elsif @direction =="W" 
+        @direction = "S"
+      elsif @direction == "S"
+        @direction ="E"
+      elsif @direction == "E"
+        @direction = "N"
       else
     end
   end
 
     def r_facing
-      if  @direction =="N" then "E"
-      elsif @direction =="E" then "S"
-      elsif @direction == "S"then "W"
-      elsif @direction == "W" then "N"
+      if  @direction =="N"
+         @direction = "E"
+      elsif @direction =="E"
+        @direction ="S"
+      elsif @direction == "S"
+        @direction = "W"
+      elsif @direction == "W"
+         @direction = "N"
       else
       puts "nothing"
     end
   end
 
+  def read_instruction(instruction)
+    if instruction == "M"
+      self.move
+    elsif instruction == "L"
+        self.l_facing
+    elsif instruction =="R"
+        self.r_facing
+      else
+        puts "Errors"
+    end
+  end
 
+
+  def output
+     puts "x_cor: #{@x_cor}\ny_cor: #{@y_cor}\ndirection: #{@direction}"
+   end
 
 end
-
-#rover= Rover.new(1, 1,"N")
-#rover.direction

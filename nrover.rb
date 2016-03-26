@@ -75,6 +75,10 @@ attr_accessor :x_cor , :y_cor , :direction
    end
 end
 
+class Plateau
+attr_accessor :x_cor , :y_cor , :direction
+end
+
    rover= Rover.new(1, 5,"N")
    puts "How would you like to move your Rover? L turn left, R to turn Right and M to move"
    instructions = gets.chomp.upcase

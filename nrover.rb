@@ -25,14 +25,13 @@ attr_accessor :x_cor , :y_cor , :direction
     elsif @direction == "E"
       @x_cor += 1
     else
-      puts "nothing"
     end
   end
 
     def l_facing
       if  @direction =="N"
         @direction = "W"
-      elsif @direction =="W" 
+      elsif @direction =="W"
         @direction = "S"
       elsif @direction == "S"
         @direction ="E"
@@ -57,20 +56,28 @@ attr_accessor :x_cor , :y_cor , :direction
   end
 
   def read_instruction(instruction)
-    if instruction == "M"
+    instruction.map do |v|
+
+      if v  == "M"
       self.move
-    elsif instruction == "L"
+    elsif v == "L"
         self.l_facing
-    elsif instruction =="R"
+    elsif v =="R"
         self.r_facing
       else
-        puts "Errors"
+        puts "Wrong input "
+      end
     end
   end
 
-
   def output
-     puts "x_cor: #{@x_cor}\ny_cor: #{@y_cor}\ndirection: #{@direction}"
+     puts " You are currently  at #{@x_cor}, #{@y_cor} facing  #{@direction}"
    end
-
 end
+
+   rover= Rover.new(1, 5,"N")
+   puts "How would you like to move your Rover? L turn left, R to turn Right and M to move"
+   instructions = gets.chomp.upcase
+   array_instructions = instructions.split(//)
+   rover.read_instruction(array_instructions)
+   rover.output

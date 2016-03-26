@@ -35,5 +35,5 @@ puts chris.teach
 puts cristina.learn
 puts cristina.teach
 puts chris.learn
-
+puts person.greeting 
 # Calling teach for a student will not work as the Student class has not inherited the teach method

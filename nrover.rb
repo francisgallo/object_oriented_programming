@@ -12,8 +12,10 @@ attr_accessor :x_cor , :y_cor , :direction
       self.move
     elsif instruction == "L"
         self.l_facing
-    else
+    elsif instruction =="R"
         self.r_facing
+      else
+        puts "Error"  
     end
   end
 

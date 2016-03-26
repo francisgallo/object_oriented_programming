@@ -8,12 +8,6 @@ attr_accessor :x_cor , :y_cor , :direction
   end
 
 
-  #def direction
-   #puts "what is your starting direction"
-  # @direction=gets.chomp
-  # puts @direction
-  #end
-
   def move
 
     if @direction == "N"
@@ -76,8 +70,21 @@ attr_accessor :x_cor , :y_cor , :direction
 end
 
 class Plateau
-attr_accessor :x_cor , :y_cor , :direction
+  attr_accessor :height , :widith
+
+  def initialize (height , widith, rovers)
+    @height=height
+    @widith =widith
+  end
+
+  def in_bounds (x,y)
+    x >= 0 and x <= widith
+    y >=0 and y <=height
+  end
 end
+# When Plateau x value hits >=10 or <=-1  and y value hits >=10 or <=-1
+
+
 
    rover= Rover.new(1, 5,"N")
    puts "How would you like to move your Rover? L turn left, R to turn Right and M to move"

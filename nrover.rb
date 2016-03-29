@@ -11,15 +11,15 @@ end
 
 def read_instructions(instruction)
 
-    instruction.each  do |v|
+    instruction.map   do |value|
 
-        if v  == "M"
+        if value  == "M"
         self.move
 
-      elsif v == "L"
+      elsif value == "L"
         self.l_facing
 
-      elsif v  =="R"
+      elsif value  =="R"
         self.r_facing
       else
         puts "Wrong input "
@@ -110,7 +110,7 @@ end
    rover= Rover.new(1, 5,"N")
    puts "How would you like to move your Rover? L turn left, R to turn Right and M to move"
 
-  instruction = gets.chomp.split
-
-   rover.read_instructions(instruction)
-   rover.output
+  instruction = gets.chomp
+  array_instructions = instruction.split
+ rover.read_instructions(array_instructions)
+ rover.output

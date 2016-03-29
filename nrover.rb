@@ -2,8 +2,6 @@ class Rover
 attr_accessor :x_cor , :y_cor , :direction
 attr_reader :Plateau
 
-class Rover
-attr_accessor :x_cor , :y_cor , :direction
 
 def initialize (x_cor , y_cor , direction)
     @x_cor = x_cor
@@ -13,15 +11,15 @@ end
 
 def read_instructions(instruction)
 
-    instruction.each  do |instruction|
+    instruction.each  do |v|
 
-        if instruction  == "M"
+        if v  == "M"
         self.move
 
-      elsif instruction == "L"
+      elsif v == "L"
         self.l_facing
 
-      elsif instruction  =="R"
+      elsif v  =="R"
         self.r_facing
       else
         puts "Wrong input "
@@ -111,7 +109,8 @@ end
    area= Plateau.new(10,7,1)
    rover= Rover.new(1, 5,"N")
    puts "How would you like to move your Rover? L turn left, R to turn Right and M to move"
-  instruction = gets.chomp.upcase.split
+
+  instruction = gets.chomp.split
 
    rover.read_instructions(instruction)
    rover.output
